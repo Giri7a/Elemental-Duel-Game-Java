@@ -1,2 +1,2 @@
-# Games
-Games using java
+# Elemental-Duel-Game-Java
+
