@@ -27,6 +27,18 @@ class sleep {
         }
         System.out.println(); 
     }
+    public static void i() {
+        System.out.print(A.GREEN+"\t Exiting the Game "+A.RESET);
+        for (int i = 0; i < 3; i++) {
+            try {
+                System.out.print(" . ");
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println(); 
+    }
     public static void b() {
         System.out.print(A.PURPLE+"\t Both players are playing the game, selecting the highest element from the ends of the row"+A.RESET);
         for (int i = 0; i < 5; i++) {
@@ -64,7 +76,7 @@ class sleep {
         System.out.println(); 
     }
     public static void d() {
-        System.out.print(A.PURPLE+"\t Player 1 Score is"+A.RESET);
+        System.out.print(A.PURPLE+"\t Evaluting the Player 1 Score "+A.RESET);
         for (int i = 0; i < 2; i++) {
             try {
                 System.out.print(" .");
@@ -76,7 +88,7 @@ class sleep {
         System.out.println(); 
     }
     public static void e() {
-        System.out.print(A.PURPLE+"\t Player 2 Score is"+A.RESET);
+        System.out.print(A.PURPLE+"\t Evaluting Player 2 Score "+A.RESET);
         for (int i = 0; i < 2; i++) {
             try {
                 System.out.print(" .");
@@ -101,7 +113,10 @@ class A {
     public static final String blink="\u001B[5m";
     public static final String bold="\u001B[1m";
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
+boolean playAgain = true;
+
 System.out.println();
 sleep.a();
 System.out.println();
@@ -113,6 +128,7 @@ System.out.println(RED+""+"\t\t\t\t\t\t\t  --------------------------- "+RESET);
 
 System.out.println();
 System.out.println();
+while (playAgain) {
 sleep.f();
         System.out.print(GREEN+"\t\t\t\t Enter the number of elements: "+RESET);
         int n = sc.nextInt();
@@ -155,6 +171,7 @@ System.out.println();
 sleep.d();
 System.out.println();
         System.out.println(RED+"\t\t\t\t Player 1 score: "+RESET +""+ player1Score);
+System.out.println();
 sleep.e();
 System.out.println();
         System.out.println(BLUE+"\t\t\t\t Player 2 score: "+RESET+""+ player2Score);
@@ -175,7 +192,18 @@ System.out.println();
             System.out.println(blink+YELLOW+"\t\t\t\t It's a tie!"+RESET);
 System.out.println();
         }
+System.out.print(GREEN + "\t\t\t\t Do you want to play again? (yes/no): " + RESET);
+            String choice = sc.next().toLowerCase();
+sleep.c();
+            if (!choice.equals("yes")) {
+                playAgain = false;
+System.out.println();
+sleep.i();
+System.out.println();
+                System.out.println(YELLOW + "\t\t\t\t Thank you for playing! Goodbye!" + RESET);
+            }
     }
+}
 }
 
 
